@@ -10,6 +10,7 @@ Page {
     tools: commonTools
 
     Component.onCompleted: {
+        // register 'this' device
         svc.post(Constants.ENDPOINT, buildUserAgent() + "&timestamp=" + new Date())
     }
 
@@ -46,7 +47,7 @@ Page {
          smooth: false
          anchors.centerIn: parent
          onLoadFinished: {
-             countLabel.text('counting...')
+             countLabel.text = 'counting...'
              svc.get(Constants.ENDPOINT)
          }
     }
